@@ -1,4 +1,5 @@
 const express = require('express');
+
 const { PORT = 3000 } = process.env;
 const app = express();
 const path = require('path');
@@ -10,5 +11,5 @@ app.use('/', cardsRouter);
 app.use('/', usersRouter);
 
 app.listen(PORT, () => {
-  //console.log('Im running');
+  // console.log('Im running');
 });
