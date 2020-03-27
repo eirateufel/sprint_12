@@ -4,12 +4,11 @@ const cardsRouter = require('express').Router();
 cardsRouter.get('/cards', (req, res) => {
   fs.readFile('./data/cards.json', 'utf8', (err, cards) => {
     if (err) {
-        console.log("File read failed:", err)
-        return;
+      res.status(500).json({message: err.message});
+      return;
     }
     res.send(cards);
   });
-  return;
 });
 
 module.exports = cardsRouter;
