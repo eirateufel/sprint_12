@@ -9,10 +9,9 @@ usersRouter.get('/users/:id', (req, res) => {
     }
     const { id } = req.params;
     const parsed = JSON.parse(users);
-    const user = parsed.find(item => item._id === id);
+    const user = parsed.find((item) => item['_id'] === id);
     if (!user) {
-
-      res.status(404).json({"message": "Нет пользователя с таким id"});
+      res.status(404).json({ message: 'Нет пользователя с таким id' });
       return;
     }
     res.send(user);
@@ -30,7 +29,7 @@ usersRouter.get('/users', (req, res) => {
 });
 
 usersRouter.get('/:nonexistent', (req, res) => {
-  res.status(404).json({"message": "Запрашиваемый ресурс не найден"});
+  res.status(404).json({ message: 'Запрашиваемый ресурс не найден' });
 });
 
 module.exports = usersRouter;
